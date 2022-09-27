@@ -15,3 +15,16 @@ tags: [ai, ml]
 ## Videos and presentations
 1. https://www.youtube.com/watch?v=O42vde4tbG0&t=233s
 2. https://www.youtube.com/watch?v=wi9mjnDfS7Y&list=PLFE-LjWAAP9Q74cGaUF3yqUhqo2kOYY20&index=2&t=1316s
+
+## Code
+1. https://paperswithcode.com/paper/understanding-deep-learning-requires
+2. https://github.com/pluskid/fitting-random-labels
+
+# Background to know before reading
+1. Generalization Error
+2. Model Capacity
+    - Universal Approximation Theory
+    - VC Dimension
+3. Regularization
+    - Explicit
+    - Implicit
