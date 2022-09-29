@@ -11,7 +11,6 @@ https://dengking.github.io/machine-learning/Theory/Deep-learning/Guide/Model-cap
 
 "The capacity of a deep learning neural network model controls the scope of the types of mapping functions that it is able to learn."
 
-
 ## What constitute a learning problem?
 [ECE595ML Lecture 22-1 Is Learning Feasible?](https://www.youtube.com/watch?v=FZZGnPZT_ns&list=PL4FSfq6xtSvyqEsz3UUnAizemXJfQyDVD&index=49)
 
@@ -38,12 +37,31 @@ In others words, can we generalize from the training set to the test set (or to 
 ## Training vs Testing 
 **In-Sample Error (Training Error)**
 - $x_{n}$ is a training sample
+- if $h(x_{n}) = f(x_{n})$, then we say that the training sample is correctly classified.
 
+**DEFINITION (In-Sample Error / Training Error):**
+Consider a training set $\mathcal{D} = \{ x_{1}, ..., x_{n} \}$, and a target function $f$. The **in-sample error** of a hypothesis function $h \in \mathcal{H}$ is the empirical average of $\{ h(x_{n}) \neq f(x_{n}) \}$:
 
+$\begin{equation}  
+E_{in}(h) {\stackrel{\text{def}}{=}} \frac {1}{N} \sum [\![ h(x_{n}) \neq f(x_{n})]\!]
+\end{equation}$
 
-**Out-Sample Error (Test Error)**
+where $[\![ \cdot ]\!] = 1 $ if the statement inside the brackets is true, and $= 0$ if the statement is false.
+
+**Out-Sample Error (Testing Error)**
 - $x$ is a test sample drawn from $p(x)$, where $p(x)$ is the unkwown input distribution.
+- if $h(x) = f(x)$, then we say that the training sample is correctly classified.
 - since $x \sim p(x)$, we need to compute the probability error, called the **out-sample error**. 
+
+**DEFINITION (Out-Sample Error / Testing Error):**
+Consider an input space $\mathcal{X}$ containing elements $x$ drawn from a distribution $p_{x}(x)$, and a target function $f$. The **out-sample error** of a hypothesis function $h \in \mathcal{H}$ is 
+
+$\begin{equation}  
+E_{out}(h) {\stackrel{\text{def}}{=}} \mathbb{P} [\ h(x) \neq f(x) ]\ 
+\end{equation}$
+
+where $\mathbb{P} [\ \cdot]\ $ measures the probability of the statement based on the distribution $p_{x}(x)$.
+
 ---
 
 ## Relação entre Input Space e Feature Space
