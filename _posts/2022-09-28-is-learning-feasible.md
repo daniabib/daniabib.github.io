@@ -11,6 +11,7 @@ https://dengking.github.io/machine-learning/Theory/Deep-learning/Guide/Model-cap
 
 "The capacity of a deep learning neural network model controls the scope of the types of mapping functions that it is able to learn."
 
+# Is Learning Feasible?
 ## What constitute a learning problem?
 [ECE595ML Lecture 22-1 Is Learning Feasible?](https://www.youtube.com/watch?v=FZZGnPZT_ns&list=PL4FSfq6xtSvyqEsz3UUnAizemXJfQyDVD&index=49)
 
@@ -61,6 +62,13 @@ E_{out}(h) {\stackrel{\text{def}}{=}} \mathbb{P} [\ h(x) \neq f(x) ]\
 \end{equation}$
 
 where $\mathbb{P} [\ \cdot]\ $ measures the probability of the statement based on the distribution $p_{x}(x)$.
+
+Because P is a Bernoulli distribution we can expand it as the expected value.
+
+If there is no correlation between the training and the test set learning is infeasible.
+
+## The Role of $p(x)$
+
 
 ---
 
