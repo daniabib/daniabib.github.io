@@ -65,12 +65,32 @@ where $\mathbb{P} [\ \cdot]\ $ measures the probability of the statement based o
 
 Because P is a Bernoulli distribution we can expand it as the expected value.
 
-If there is no correlation between the training and the test set learning is infeasible.
+.
 
 ## The Role of $p(x)$
+If there is no correlation between the training and the test set learning is infeasible
 
+- Learning is feasible if $x \sim p(x)$.
+- $p(x)$ says: Training and testing are related.
+- If you draw training and testing with different bias, then you will suffer
+
+Using probability inequalities (in this case, Hoeffding Inequality) we can relate trainig and testing.
+
+### Interpreting the Bound
+**Message 1:** You cand bound $E_{out}(h)$ using $E_{in}(h)$.
+- $E_{in}(h)$: you know. $E_{out}(h)$: you don't know, but you want to know.
+- They are close if N is large.
+
+**Message 2:** The right hand side is independent of $h$ and $p(x)$.
+- So it is a universal upper bound.
+- Works for any $\mathcal{A}$, any $\mathcal{H}$, any $f$, and any $p(x)$.
 
 ---
+
+## READING LIST
+- High Dimensional Statistics ch. 2
+- Learning from data ch. 1
+- Foundations of ML ch. 2
 
 ## Relação entre Input Space e Feature Space
 
