@@ -23,7 +23,24 @@ The concept $c(x)$ is the "true" concept we want to learn.
 
 **DEFINITION PAC-Learning:** A concept class $\mathcal{C}$ is said to be PAC-learnable if there exists an algorithm $\mathcal{A}$ and a polynomial function $poly(·, ·, ·, ·)$ such that for any $\epsilon > 0$ and $\delta > 0$, for all distributions $\mathcal{D}$ on $\mathcal{X}$ and for any target concept $c \in \mathcal{C}$, the following holds for any sample size $m \geq poly(1/\epsilon, 1/\delta, n, size(c))$:
 
+$\begin{equation}  
+\mathbb{P}_{\mathcal{S} \sim \mathcal{D^{m}}} [\ R(h_{s}) \leq \epsilon]\ \geq 1 - \delta
+\end{equation}$
+
+If $\mathcal{A}$ further runs in $poly(1/\epsilon, 1/\delta, n, size(c))$, then $\mathcal{C}$ is said to be efficiently PAC-learnable. When such an algorithm $\mathcal{A}$ exists, it is called a PAC-learning algorithm for $\mathcal{C}$.
+
+\* R(h) is the generalization error
+
+"A concept class C is thus PAC-learnable if the hypothesis returned by the algorithm
+after observing a number of points polynomial in 1/ and 1/δ is approximately
+correct (error at most ) with high probability (at least 1 − δ), which justifies the
+PAC terminology. The parameter δ > 0 is used to define the confidence 1 − δ
+and  > 0 the accuracy 1 − . Note that if the running time of the algorithm is
+polynomial in 1/ and 1/δ, then the sample size m must also be polynomial if the
+full sample is received by the algorithm" p. 11
 
 
 
+### Consistency
+https://mlweb.loria.fr/book/en/consistency.html
 
