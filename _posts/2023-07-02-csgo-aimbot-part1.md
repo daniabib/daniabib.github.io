@@ -73,10 +73,10 @@ from datetime import datetime
 output = "screenshots"
 os.makedirs(output, exist_ok=True)
 
-timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S%f")
 ```
 
-O método `now()` retorna um objeto `datetime` contendo o horário local, enquanto `strftime("%Y%m%d_%H-%M-%S")` transforma esse objeto em uma `string` com a formatação ANO-MES-DIA_HORA-MINUTO-SEGUNDO. Em seguida, basta salvar a imagem:
+O método `now()` retorna um objeto `datetime` contendo o horário local, enquanto `strftime("%Y%m%d_%H-%M-%S%f")` transforma esse objeto em uma `string` com a formatação ANO-MES-DIA_HORA-MINUTO-SEGUNDO_MILISEGUNDOS. Os milisegundos ao final são importantes para garantir que poderemos salvar mais imagens por segundo, caso optemos por um fps maior. Em seguida, basta salvar a imagem:
 
 ```python
 image.save(f"{output}/screenshot-{timestamp}.png")
@@ -95,4 +95,48 @@ def resize_image(mss_image: ScreenShot, size: tuple[int, int] = None) -> Image:
 ```
 
 Finalmente, nosso código completo fica da seguinte maneira:
+```python
+import time
+from datetime import datetime
+import os
 
+from mss import mss
+from PIL import Image
+
+FPS = 1
+
+
+def resize_image(mss_image, size: tuple[int, int] = None) -> Image:
+    image = Image.frombytes("RGB", mss_image.size,
+                            mss_image.bgra, "raw", "BGRX")
+    image = image.resize(size, resample=Image.Resampling.LANCZOS)
+    return image
+
+
+with mss() as sct:
+    sct_number = 0
+    monitor = sct.monitors[1]
+
+    output = "test_screenshots"
+    os.makedirs(output, exist_ok=True)
+
+    try:
+        while "Screen Capturing":
+            timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S%f")
+
+            screenshot = sct.grab(monitor)
+            image = Image.frombytes("RGB",
+                                    screenshot.size,
+                                    screenshot.bgra,
+                                    "raw", "BGRX")
+            image.save(f"{output}/screenshot-{timestamp}.png")
+
+            sct_number += 1
+
+            time.sleep(1/FPS)
+
+    except KeyboardInterrupt:
+        print("\nEnding screen rec.")
+        sct.close()
+        print("Bye!")
+```
