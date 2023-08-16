@@ -18,3 +18,9 @@ Three main formulation:
 1. Stochastic Differential Equations (Score SDEs)
 
 ###  Denoising Diffusion Probabilistic Models (DDPMs)
+Papers:
+1. - [ ] [Deep Unsupervised Learning using Nonequilibrium Thermodynamics](https://arxiv.org/abs/1503.03585)
+1. - [ ] [Denoising Diffusion Probabilistic Models](https://arxiv.org/abs/2006.11239)
+
+
+# Understanding Diffusion Models: A Unified Perspective
